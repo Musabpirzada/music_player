@@ -10,6 +10,16 @@ root.geometry("485x700+100+10")
 root.configure(background="#333333")
 root.resizable(False, False)
 
+def AddMusic():
+    path = filedialog.askdirectory()
+    if path:
+        os.chdir(path)
+        songs = os.listdir(path)
+
+    for song in songs:
+        if song.endswith(".mp3"):
+            Playlist.insert(END, song)
+
 
 bottom_frame = Frame(root, bg="#FFFFFF", width=485, height=180)
 bottom_frame.place(x=0, y=400)
